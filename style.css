@@ -1,0 +1,77 @@
+body {
+    background: black;
+    font-family: 'Comic Neue', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#main-nav {
+    height: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    padding: 20px 0 0 20px;
+    display: flex;
+}
+
+#canvas1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 700px;
+    background-image: url("./assets/images/zbraaa-production-image.png");
+    font-family: 'Comic Neue', sans-serif;
+}
+
+.logo-zbraaa-nav {
+    width: 100px;
+    height: 40px;
+    display: block;
+    padding-right: 10px;
+}
+.logo-zbraaa-nav:hover {
+    filter: brightness(150%);
+}
+
+#jeux-nav {
+    align-self: center;
+}
+
+@media screen and (max-width: 1024px) {
+    #main-nav {
+        position: relative;
+        height: 25px;
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .logo-zbraaa-nav {
+        width: 50px;
+        height: 20px;
+        padding-right: 10px;
+    }
+
+    .canvas-container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+
+    #canvas1 {
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(0, 0);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .canvas-container {
+        justify-content: start;
+    }
+}
