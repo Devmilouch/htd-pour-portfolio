@@ -6,7 +6,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = 900;
 canvas.height = 700;
 
-const fpsMultiplier = 2;
 const cellSize = 100;
 const cellGap = 2;
 let frame = 480;
@@ -115,7 +114,7 @@ canvas.addEventListener("mouseup", function(e) {
         setTimeout(() => {
             mouse.clicked = false;
             clickLatency = false;
-        }, 40);
+        }, 20);
     }
 });
 canvas.addEventListener("contextmenu", function(e) {
@@ -213,7 +212,7 @@ class Projectile {
         this.y = y;
         this.width = 32;
         this.height = 32;
-        this.speed = 5 * fpsMultiplier;
+        this.speed = 5;
         this.damage = projectileDamage;
     }
     update() {
@@ -427,7 +426,7 @@ const enemiesUnits = {
         drawSizeModifier: 15,
         drawModifierX: 7.5,
         drawModifierY: 15,
-        walkSpeedAnimation: 3,
+        walkSpeedAnimation: 4,
         attackSpeedAnimation: 8,
         deathSpeedAnimation: 8,
         minWalkFrame: 0,
@@ -441,7 +440,7 @@ const enemiesUnits = {
         type: "melee",
         health: 40,
         damage: 10,
-        movementSpeedModifier: 1.2 * fpsMultiplier
+        movementSpeedModifier: 1.2
     },
     orc: {
         spriteSheet: new Image(),
@@ -454,7 +453,7 @@ const enemiesUnits = {
         drawSizeModifier: 40,
         drawModifierX: 20,
         drawModifierY: 40,
-        walkSpeedAnimation: 6,
+        walkSpeedAnimation: 7,
         attackSpeedAnimation: 8,
         deathSpeedAnimation: 8,
         minWalkFrame: 0,
@@ -468,7 +467,7 @@ const enemiesUnits = {
         type: "melee",
         health: 100,
         damage: 10,
-        movementSpeedModifier: 1 * fpsMultiplier
+        movementSpeedModifier: 1
     }
 };
 enemiesUnits.gobelin.spriteSheet.src = "./assets/images/spritesheet-gobelin.png";
@@ -485,7 +484,7 @@ const bossUnits = {
         drawSizeModifier: 28,
         drawModifierX: 14,
         drawModifierY: 28,
-        walkSpeedAnimation: 8,
+        walkSpeedAnimation: 10,
         attackSpeedAnimation: 8,
         deathSpeedAnimation: 10,
         minWalkFrame: 0,
@@ -499,7 +498,7 @@ const bossUnits = {
         type: "melee",
         health: 300,
         damage: 20,
-        movementSpeedModifier: 0.8 * fpsMultiplier
+        movementSpeedModifier: 0.6
     }
 };
 bossUnits.bossOrc.spriteSheet.src = "./assets/images/spritesheet-bossOrc.png";
@@ -1291,13 +1290,13 @@ function animate() {
                 handleBagsOfResources();
                 handleFloatingMessages();
                 chooseDefender();
-                frame += (1 * fpsMultiplier);
+                frame++;
             }
             handleGameStatus();
             handleDialogues();
             handleAnnounceNextWave();
         }
         requestAnimationFrame(animate);
-    }, 1000/30);
+    }, 1000/60);
 }
 animate();
