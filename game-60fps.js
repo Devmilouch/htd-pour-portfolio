@@ -43,7 +43,7 @@ messageIntroImage.src = "./assets/images/message-intro-image.png";
 const ZbraaaProductionImage = new Image();
 ZbraaaProductionImage.src = "./assets/images/zbraaa-production-image.png";
 const mainMenuImage = new Image();
-mainMenuImage.src = "./assets/images/main-menu-image.png";
+mainMenuImage.src = "./assets/images/main-menu-image.jpg";
 const didacticielImage = new Image();
 didacticielImage.src = "./assets/images/didacticiel-menu-image.png";
 const backgroundImage = new Image();
@@ -888,7 +888,7 @@ function handleGameStatus() {
 // Buttons
 const buttonJouer = {
     x: 320,
-    y: 305,
+    y: 375,
     width: 307,
     height: 64,
     image: new Image()
@@ -896,7 +896,7 @@ const buttonJouer = {
 buttonJouer.image.src = "./assets/images/button-jouer.png";
 const buttonDidacticiel = {
     x: 320,
-    y: 380,
+    y: 450,
     width: 307,
     height: 64,
     image: new Image()
@@ -912,7 +912,7 @@ const buttonMenuPrincipal = {
 buttonMenuPrincipal.image.src = "./assets/images/button-menu-principal.png";
 const buttonCommencer = {
     x: 297,
-    y: 480,
+    y: 530,
     width: 307,
     height: 64,
     image: new Image()
@@ -950,7 +950,7 @@ function messageIntroMenu() {
 }
 function mainMenu() {
     ctx.drawImage(mainMenuImage, 0, 0);
-    buttonJouer.y = 305;
+    buttonJouer.y = 375;
     ctx.drawImage(buttonJouer.image, buttonJouer.x, buttonJouer.y, buttonJouer.width, buttonJouer.height);
     ctx.drawImage(buttonDidacticiel.image, buttonDidacticiel.x, buttonDidacticiel.y, buttonDidacticiel.width, buttonDidacticiel.height);
     if (userFirstInteraction && mainMenuMusic.paused) {
