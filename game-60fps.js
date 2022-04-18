@@ -1266,8 +1266,15 @@ function resetGame() {
 /**
  * GAME PLAYING
  */
-function animate() {
-    setTimeout(() => {
+const fps = 1000 / 60;
+let deltaTime = 0;
+let lastUpdate = 0;
+
+function animate(timeStamp) {   
+    deltaTime = timeStamp - lastUpdate;
+
+    if (deltaTime >= fps) {
+        lastUpdate = timeStamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         if (displayZbraaProductionBool) displayZbraaProduction();
         if (messageIntroMenuBool) messageIntroMenu();
@@ -1291,12 +1298,14 @@ function animate() {
                 handleFloatingMessages();
                 chooseDefender();
                 frame++;
-            }
+            };
             handleGameStatus();
             handleDialogues();
             handleAnnounceNextWave();
-        }
-        requestAnimationFrame(animate);
-    }, 1000/60);
+        };
+    };
+
+    requestAnimationFrame(animate);
 }
+
 animate();
